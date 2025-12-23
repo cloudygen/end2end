@@ -12,7 +12,7 @@ pipeline {
         IMAGE_NAME     = 'e2e-app-trainer'
         NEXUS_CRED     = 'nexus-auth'
         CONTAINER_NAME = 'e2e-app-trainer'
-        APP_PORT       = '9091' // The port exposed to the host
+        APP_PORT       = '9091' // Add your unique port here
     }
 
     tools {
