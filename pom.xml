@@ -47,6 +47,11 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.5</version>
             </plugin>
+            <!-- This creates the 'Fat JAR' with the Main Manifest -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
         </plugins>
     </build>
 </project>
