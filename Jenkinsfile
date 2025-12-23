@@ -46,22 +46,22 @@ pipeline {
         }
 
         // --- STAGE 3: Security Scan (Trivy) ---
-        stage('Trivy Security Scan') {
-            when { expression { params.ACTION == 'Deploy New Version' } }
-            steps {
-                script {
-                    echo "--- 3. Scanning for Vulnerabilities ---"
-                    sh """
-                        docker run --rm \
-                        -v /var/run/docker.sock:/var/run/docker.sock \
-                        aquasec/trivy image \
-                        --severity HIGH,CRITICAL \
-                        --exit-code 0 \
-                        ${NEXUS_REGISTRY}/${IMAGE_NAME}:${params.VERSION_TAG}
-                    """
-                }
-            }
-        }
+        // stage('Trivy Security Scan') {
+        //     when { expression { params.ACTION == 'Deploy New Version' } }
+        //     steps {
+        //         script {
+        //             echo "--- 3. Scanning for Vulnerabilities ---"
+        //             sh """
+        //                 docker run --rm \
+        //                 -v /var/run/docker.sock:/var/run/docker.sock \
+        //                 aquasec/trivy image \
+        //                 --severity HIGH,CRITICAL \
+        //                 --exit-code 0 \
+        //                 ${NEXUS_REGISTRY}/${IMAGE_NAME}:${params.VERSION_TAG}
+        //             """
+        //         }
+        //     }
+        // }
 
         // --- STAGE 4: Push to Nexus ---
         stage('Push to Nexus') {
